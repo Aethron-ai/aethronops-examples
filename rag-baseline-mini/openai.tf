@@ -7,17 +7,17 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : COGNITIVE-ACCOUNT
+# BRICK : COGNITIVE-ACCOUNT
 # Module AVM : Azure/avm-res-cognitiveservices-account/azurerm
 # Version    : ~> 0.11
-# Azure Cognitive Services / OpenAI est le service d'IA managé
-# d'Azure. Il héberge les modèles GPT, DALL-E, Whisper, etc.
-# AethronOps configure :
-# → Kind OpenAI avec SKU S0
-# → Custom subdomain pour endpoint
-# → Network ACLs en standard/premium
-# → Managed Identity pour auth
-# → Diagnostic settings vers Log Analytics
+# Azure Cognitive Services / OpenAI is the managed AI service
+# on Azure. It hosts GPT, DALL-E, Whisper models, and more.
+# AethronOps configures:
+# -> Kind OpenAI with SKU S0
+# -> Custom subdomain for endpoint
+# -> Network ACLs in standard/premium tier
+# -> Managed Identity for auth
+# -> Diagnostic settings to Log Analytics
 # CAF : APP-2, DATA-1
 # Ref : https://learn.microsoft.com/azure/ai-services/openai/overview
 # MCSB : DP-1, DP-3, NS-3, IM-1

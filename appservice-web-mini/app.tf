@@ -7,13 +7,13 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : APP-SERVICE-PLAN
+# BRICK : APP-SERVICE-PLAN
 # Ressource  : azurerm_service_plan (native azurerm)
-# L'App Service Plan définit la capacité de calcul (CPU/RAM)
-# et le SKU de ton application web.
-# Déployé comme ressource native azurerm car il n'existe pas
-# de module AVM officiel dédié à ce jour.
-# Le SKU est automatiquement adapté au tier choisi :
+App Service Plan defines compute capacity (CPU/RAM)
+# and the SKU for your web application.
+Deployed as native azurerm resource because there is no
+# official dedicated AVM module for this yet.
+# The SKU is automatically adapted to the chosen tier:
 # B1 (dev/basic) → P1v3 (standard) → P3v3 (premium)
 # CAF : APP-1
 # Ref : https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/app-service-environment
@@ -30,12 +30,12 @@ resource "azurerm_service_plan" "app_service_plan" {
 }
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : APP-SERVICE
+# BRICK : APP-SERVICE
 # Module AVM : Azure/avm-res-web-site/azurerm
 # Version    : 0.21.0
-# Azure App Service est la plateforme PaaS pour les applications web.
-# Elle élimine la gestion des VMs, des OS et des patchs.
-# Déploiement continu, scaling auto, intégration VNet, identité managée.
+# Azure App Service is the PaaS platform for web applications.
+eliminates VM, OS, and patch management.
+Continuous deployment, auto-scaling, VNet integration, managed identity.
 # CAF : APP-1, SEC-3
 # Ref : https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/app-service-environment
 # MCSB : NS-1, IM-1, DP-3, DS-6

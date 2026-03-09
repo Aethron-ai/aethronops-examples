@@ -7,16 +7,16 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : STORAGE-ACCOUNT
+# BRICK : STORAGE-ACCOUNT
 # Module AVM : Azure/avm-res-storage-storageaccount/azurerm
 # Version    : ~> 0.2
-# Le compte de stockage Azure fournit un stockage objet
-# (Blob), fichier (File Share), table et queue.
-# AethronOps configure automatiquement :
-# → Chiffrement at-rest avec clés managées
-# → HTTPS uniquement (TLS 1.2 minimum)
-# → Accès réseau privé uniquement (Private Endpoint)
-# → Versioning et soft-delete pour la récupération
+# Azure Storage Account provides object storage
+# (Blob), file (File Share), table, and queue.
+# AethronOps automatically configures:
+# -> Encryption at rest with managed keys
+# -> HTTPS only (TLS 1.2 minimum)
+# -> Private network access only (Private Endpoint)
+# -> Versioning and soft-delete for recovery
 # CAF : DATA-1
 # MCSB : DP-1, DP-3, NS-3, AM-2
 # Ref : https://learn.microsoft.com/security/benchmark/azure/mcsb-data-protection

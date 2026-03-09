@@ -7,15 +7,15 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : LOG-ANALYTICS
+# BRICK : LOG-ANALYTICS
 # Module AVM : Azure/avm-res-operationalinsights-workspace/azurerm
 # Version    : ~> 0.4
-# Log Analytics est le hub central de tous les logs et
-# métriques de ton infrastructure Azure.
-# Toutes les autres briques envoient leurs diagnostics ici.
-# Sans logs centralisés, tu es aveugle en cas d'incident :
-# tu ne sais pas ce qui s'est passé, quand, et qui.
-# C'est aussi la base de toutes les alertes et tableaux de bord.
+# Log Analytics is the central hub for all logs and
+# metrics of your Azure infrastructure.
+# All other resources send their diagnostics here.
+# Without centralized logs, you are blind during incidents:
+# you cannot tell what happened, when, and who.
+# This is also the foundation for all alerts and dashboards.
 # CAF : OPS-1, OPS-2, GOV-3
 # Ref : https://learn.microsoft.com/azure/cloud-adoption-framework/manage/monitor
 # MCSB : LT-1, LT-2, LT-3, LT-4, LT-5, IR-1

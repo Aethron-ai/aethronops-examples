@@ -7,14 +7,14 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : MANAGED-IDENTITY
+# BRICK : MANAGED-IDENTITY
 # Module AVM : Azure/avm-res-managedidentity-userassignedidentity/azurerm
 # Version    : ~> 0.3
-# La Managed Identity est une identité Azure AD gérée
-# automatiquement par Azure pour tes ressources.
-# Tes apps et services peuvent s'authentifier à d'autres
-# services Azure (Key Vault, Storage, BDD) SANS stocker
-# de mot de passe ou de clé d'API dans le code.
+# Managed Identity is an Azure AD identity automatically
+# managed by Azure for your resources.
+# Your apps and services can authenticate to other
+# Azure services (Key Vault, Storage, DB) WITHOUT storing
+# any password or API key in your code.
 # CAF : ID-1, ID-2
 # Ref : https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/identity-access-management
 # MCSB : IM-1, IM-2

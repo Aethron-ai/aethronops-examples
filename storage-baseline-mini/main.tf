@@ -44,7 +44,7 @@ resource "random_string" "storage_suffix" {
 data "azurerm_client_config" "current" {}
 
 locals {
-  # Naming CAF — utilisé dans resource_group_name des modules
+  # CAF naming — used in resource_group_name across modules
   rg_name = "rg-${var.project_name}-${var.environment}-${var.region_short}"
 
   # Common tags merged with business + enterprise tags

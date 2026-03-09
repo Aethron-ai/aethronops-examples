@@ -3,37 +3,37 @@
 # ============================================================
 
 variable "project_name" {
-  description = "Nom du projet (minuscules, tirets uniquement)"
+  description = "Project name (lowercase and hyphens only)"
   type        = string
   validation {
     condition     = can(regex("^[a-z0-9-]+$", var.project_name))
-    error_message = "project_name doit être en minuscules et tirets uniquement."
+    error_message = "project_name must be lowercase letters, numbers, and hyphens only."
   }
 }
 
 variable "environment" {
-  description = "Environnement cible"
+  description = "Target environment"
   type        = string
   validation {
     condition     = contains(["dev", "uat", "test", "staging", "prod"], var.environment)
-    error_message = "environment doit être dev, uat, test, staging ou prod."
+    error_message = "environment must be one of: dev, uat, test, staging, prod."
   }
 }
 
 variable "location" {
-  description = "Région Azure principale"
+  description = "Primary Azure region"
   type        = string
   default     = "westeurope"
 }
 
 variable "region_short" {
-  description = "Code court de la région (ex: weu, frc)"
+  description = "Short region code (e.g. weu, frc)"
   type        = string
   default     = "weu"
 }
 
 variable "subscription_id" {
-  description = "ID de la subscription Azure"
+  description = "Azure subscription ID"
   type        = string
   sensitive   = true
 }

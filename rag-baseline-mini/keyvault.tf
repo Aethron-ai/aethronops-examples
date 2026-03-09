@@ -7,14 +7,14 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : KEY-VAULT
+# BRICK : KEY-VAULT
 # Module AVM : Azure/avm-res-keyvault-vault/azurerm
 # Version    : ~> 0.9
-# Azure Key Vault est le coffre-fort centralisé pour tous
-# tes secrets, clés de chiffrement et certificats.
-# Tes apps récupèrent leurs secrets à l'exécution via
-# leur Managed Identity — jamais stockés dans le code.
-# Toutes les opérations sont loguées et auditables.
+# Azure Key Vault is the centralized vault for all
+# your secrets, encryption keys, and certificates.
+# Your apps retrieve secrets at runtime via
+# their Managed Identity — never stored in code.
+# All operations are logged and auditable.
 # CAF : SEC-3, SEC-4
 # Ref : https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 # MCSB : DP-1, DP-2, DP-3, DP-6, DP-7

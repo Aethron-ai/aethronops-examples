@@ -7,14 +7,14 @@
 # ============================================================
 
 # ──────────────────────────────────────────────────────────
-# BRIQUE : RESOURCE-GROUP
+# BRICK : RESOURCE-GROUP
 # Module AVM : Azure/avm-res-resources-resourcegroup/azurerm
 # Version    : ~> 0.1
-# Le Resource Group est le conteneur logique de toutes tes
-# ressources Azure. Il permet de les organiser, les gérer,
-# les taguer et les facturer ensemble.
-# AethronOps crée un RG par domaine fonctionnel
-# (network, security, identity...) pour une gouvernance claire.
+# The Resource Group is the logical container for all your
+# Azure resources. It enables organizing, managing,
+# tagging, and billing them together.
+# AethronOps creates one RG per functional domain
+# (network, security, identity...) for clear governance.
 # CAF : RG-1, RG-2, GOV-1
 # Ref : https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming
 # ──────────────────────────────────────────────────────────
