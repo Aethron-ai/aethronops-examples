@@ -19,6 +19,111 @@ Each example is a complete, deployable infrastructure stack with:
 
 > Cost estimates are for **dev/basic** tier in West Europe. Production tiers are higher.
 
+## Architecture Diagrams
+
+### storage-baseline-mini
+
+```mermaid
+graph LR
+    subgraph Resource Group
+        MI[🔑 Managed Identity]
+        KV[🔐 Key Vault]
+        ST[📦 Storage Account<br/>Blob · LRS]
+        LA[📊 Log Analytics]
+    end
+
+    MI -->|access policy| KV
+    MI -->|auth| ST
+    ST -.->|diagnostics| LA
+    KV -.->|diagnostics| LA
+
+    style MI fill:#4FC3F7,stroke:#0288D1,color:#000
+    style KV fill:#CE93D8,stroke:#7B1FA2,color:#000
+    style ST fill:#81C784,stroke:#388E3C,color:#000
+    style LA fill:#FFB74D,stroke:#F57C00,color:#000
+```
+
+### appservice-web-mini
+
+```mermaid
+graph LR
+    U[👤 Users] -->|HTTPS| APP
+
+    subgraph Resource Group
+        MI[🔑 Managed Identity]
+        KV[🔐 Key Vault]
+        APP[🌐 App Service<br/>Plan B1 · Linux]
+        LA[📊 Log Analytics]
+    end
+
+    MI -->|access policy| KV
+    MI -->|auth| APP
+    APP -.->|diagnostics| LA
+    KV -.->|diagnostics| LA
+    APP -->|secrets| KV
+
+    style U fill:#E0E0E0,stroke:#757575,color:#000
+    style MI fill:#4FC3F7,stroke:#0288D1,color:#000
+    style KV fill:#CE93D8,stroke:#7B1FA2,color:#000
+    style APP fill:#64B5F6,stroke:#1565C0,color:#000
+    style LA fill:#FFB74D,stroke:#F57C00,color:#000
+```
+
+### rag-baseline-mini — RAG AI Pipeline
+
+```mermaid
+graph TB
+    U[👤 Users] -->|query| APP[Your Application]
+
+    subgraph Resource Group
+        direction TB
+        MI[🔑 Managed Identity]
+        KV[🔐 Key Vault]
+        OAI[🧠 Azure OpenAI<br/>GPT · Embeddings]
+        SRCH[🔍 AI Search<br/>Cognitive Search]
+        ST[📦 Storage Account<br/>Documents · Blob]
+        LA[📊 Log Analytics]
+    end
+
+    APP -->|1. embed query| OAI
+    APP -->|2. vector search| SRCH
+    APP -->|3. generate answer| OAI
+    ST -->|indexer| SRCH
+    SRCH -->|enrichment| OAI
+    MI -->|auth| OAI
+    MI -->|auth| SRCH
+    MI -->|auth| ST
+    MI -->|access policy| KV
+    OAI -.->|diagnostics| LA
+    SRCH -.->|diagnostics| LA
+
+    style U fill:#E0E0E0,stroke:#757575,color:#000
+    style APP fill:#E0E0E0,stroke:#757575,color:#000
+    style MI fill:#4FC3F7,stroke:#0288D1,color:#000
+    style KV fill:#CE93D8,stroke:#7B1FA2,color:#000
+    style OAI fill:#EF5350,stroke:#C62828,color:#fff
+    style SRCH fill:#AB47BC,stroke:#6A1B9A,color:#fff
+    style ST fill:#81C784,stroke:#388E3C,color:#000
+    style LA fill:#FFB74D,stroke:#F57C00,color:#000
+```
+
+### AethronOps — How It Works
+
+```mermaid
+graph LR
+    CAT[📋 54 Stack Types<br/>× 3 sizes × 3 envs] -->|generate| ENG[⚙️ AethronOps Engine]
+    ENG -->|produces| TF[📁 Terraform Code<br/>AVM Modules]
+    TF -->|terraform apply| AZ[☁️ Azure<br/>Infrastructure]
+
+    ENG -->|also generates| DOC[📄 README<br/>COMPLIANCE<br/>DISCLAIMER]
+
+    style CAT fill:#FFF176,stroke:#F9A825,color:#000
+    style ENG fill:#64B5F6,stroke:#1565C0,color:#000
+    style TF fill:#81C784,stroke:#388E3C,color:#000
+    style AZ fill:#4FC3F7,stroke:#0288D1,color:#000
+    style DOC fill:#FFCC80,stroke:#EF6C00,color:#000
+```
+
 ## Quick Start
 
 ```bash

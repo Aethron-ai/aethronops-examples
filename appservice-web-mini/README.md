@@ -12,6 +12,35 @@
 | Bricks | 7 Azure Verified Modules |
 | Compliance | CAF + WAF + MCSB + RGPD + NIS2 |
 
+## Architecture Diagram
+
+```mermaid
+graph LR
+    U[👤 Users] -->|HTTPS| APP
+
+    subgraph rg [Resource Group — rg-project-dev-weu]
+        MI[🔑 Managed Identity]
+        KV[🔐 Key Vault]
+        APP[🌐 App Service<br/>Plan B1 · Linux]
+        AI[📈 App Insights]
+        LA[📊 Log Analytics]
+    end
+
+    MI -->|access policy| KV
+    MI -->|auth| APP
+    APP -->|secrets| KV
+    APP -.->|traces & metrics| AI
+    AI -.->|stored in| LA
+    KV -.->|diagnostics| LA
+
+    style U fill:#E0E0E0,stroke:#757575,color:#000
+    style MI fill:#4FC3F7,stroke:#0288D1,color:#000
+    style KV fill:#CE93D8,stroke:#7B1FA2,color:#000
+    style APP fill:#64B5F6,stroke:#1565C0,color:#000
+    style AI fill:#F48FB1,stroke:#C2185B,color:#000
+    style LA fill:#FFB74D,stroke:#F57C00,color:#000
+```
+
 ## Components — What Each Resource Does and How It's Secured
 
 | Resource | Purpose | Security |

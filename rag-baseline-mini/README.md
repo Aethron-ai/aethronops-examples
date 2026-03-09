@@ -12,6 +12,46 @@
 | Bricks | 7 Azure Verified Modules |
 | Compliance | CAF + WAF + MCSB + RGPD + NIS2 |
 
+## Architecture Diagram
+
+```mermaid
+graph TB
+    U[👤 Users] -->|query| APP[Your Application]
+
+    subgraph rg [Resource Group — rg-project-dev-weu]
+        MI[🔑 Managed Identity]
+        KV[🔐 Key Vault]
+        OAI[🧠 Azure OpenAI<br/>GPT · Embeddings]
+        SRCH[🔍 AI Search<br/>Index · Skillsets]
+        ST[📦 Storage Account<br/>Documents · Blob]
+        LA[📊 Log Analytics]
+    end
+
+    APP -->|1. embed query| OAI
+    APP -->|2. vector search| SRCH
+    APP -->|3. generate answer| OAI
+    ST -->|indexer| SRCH
+    SRCH -->|enrichment| OAI
+    MI -->|auth| OAI
+    MI -->|auth| SRCH
+    MI -->|auth| ST
+    MI -->|access policy| KV
+    OAI -.->|diagnostics| LA
+    SRCH -.->|diagnostics| LA
+
+    style U fill:#E0E0E0,stroke:#757575,color:#000
+    style APP fill:#E0E0E0,stroke:#757575,color:#000
+    style MI fill:#4FC3F7,stroke:#0288D1,color:#000
+    style KV fill:#CE93D8,stroke:#7B1FA2,color:#000
+    style OAI fill:#EF5350,stroke:#C62828,color:#fff
+    style SRCH fill:#AB47BC,stroke:#6A1B9A,color:#fff
+    style ST fill:#81C784,stroke:#388E3C,color:#000
+    style LA fill:#FFB74D,stroke:#F57C00,color:#000
+```
+
+> **RAG Flow**: Documents in Storage are indexed by AI Search with OpenAI enrichment (embeddings).
+> User queries are embedded, matched via vector search, then OpenAI generates answers from the relevant documents.
+
 ## Components — What Each Resource Does and How It's Secured
 
 | Resource | Purpose | Security |
